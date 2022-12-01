@@ -21,31 +21,46 @@ function Login() {
     
     */
     const navigate = useNavigate()
+
     const [token, setToken] = useLocalStorage('token')
+
     const [UserLogin, setUserLogin] = useState<UserLogin>({
+
         id: 0,
+
         usuario: '',
+
         senha: '',
+
         token: ''
+
     })
 
     function updateModel(e: ChangeEvent<HTMLInputElement>) {
 
         setUserLogin({
+
             ...UserLogin,
+
             [e.target.name]: e.target.value
 
         })
+
     }
 
     useEffect(() => {
+
         if (token != '') {
+
             navigate('/home')
 
+
         }
+
     }, [token])
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+
         e.preventDefault()
 
         try {
@@ -64,40 +79,63 @@ function Login() {
 
     return (
         <Grid container direction='row' justifyContent='center' alignItems='center'>
+
             <Grid alignItems='center' xs={6}>
+
                 <Box paddingX={20}>
+
                     <form onSubmit={onSubmit}>
+
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos1'>Entrar</Typography>
 
                         <TextField value={UserLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
                             id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth></TextField>
 
                         <TextField value={UserLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
+
                             id='senha' label='senha'
+
                             variant='outlined' name='senha' margin='normal'
+
                             fullWidth type='password'></TextField>
 
 
                         <Box marginTop={2} textAlign='center'>
+
                             <Button type='submit' variant='contained' color='primary'>
+
                                 Logar
+
                             </Button>
 
                         </Box>
+
                     </form>
+
                     <Box display='flex' justifyContent='center' marginTop={2}>
+
                         <Box marginRight={1}>
+
                             <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
+
                         </Box>
+
                         <Typography variant='subtitle1' gutterBottom align='center' className='textos1'>Cadastre-se</Typography>
+
                     </Box>
+
                 </Box>
+
             </Grid>
+
             <Grid xs={6} className='imagem'>
 
             </Grid>
+
         </Grid>
+
     );
+
 }
 
 export default Login;
