@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Grid, Typography, TextField, Button } from '@material-ui/core';
 import { Box } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import UserLogin from '../../models/UserLogin';
 import { login } from '../../services/Service';
@@ -9,30 +9,15 @@ import useLocalStorage from 'react-use-localstorage';
 
 function Login() {
 
-    /*
-
-    A maior parte dos Hook pracisarão de uma variável para acessar o seu valor e uma função para modificar os seus dados.
-
-    1 - Criaremos o Hook userState do tipo  UserLogin, definindo os seus valores iniciais
-
-    2 - método para recuperar as informações dos usuários
-    
-    3 - Chamar o método dentro dos TextFields
-    
-    */
     const navigate = useNavigate()
 
     const [token, setToken] = useLocalStorage('token')
 
     const [UserLogin, setUserLogin] = useState<UserLogin>({
 
-        id: 0,
-
         usuario: '',
 
-        senha: '',
-
-        token: ''
+        senha: ''
 
     })
 
@@ -54,7 +39,6 @@ function Login() {
 
             navigate('/home')
 
-
         }
 
     }, [token])
@@ -65,10 +49,9 @@ function Login() {
 
         try {
 
-            await login('/usuarios/logar', UserLogin, setToken)
+            await login('/auth/logar', UserLogin, setToken)
 
             alert('Usuario logado com Sucesso!')
-
 
         } catch (error) {
 
@@ -120,7 +103,9 @@ function Login() {
 
                         </Box>
 
+                        <Link to='/cadastrousuario' className='text-decorator-none'>
                         <Typography variant='subtitle1' gutterBottom align='center' className='textos1'>Cadastre-se</Typography>
+                        </Link>
 
                     </Box>
 
