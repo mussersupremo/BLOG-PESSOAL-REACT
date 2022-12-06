@@ -19,19 +19,13 @@ function Navbar() {
             <AppBar position="static">
                 <Toolbar variant="dense">
                     <Box className='cursor'>
+                        <Link to='/home' className='text-decorator-none cursor'>
                         <Typography variant="h5" color="inherit">
                             BlogPessoal
                         </Typography>
+                        </Link>
                     </Box>
 
-                    <Box display="flex" justifyContent="start">
-                        <Box mx={1} className='cursor'>
-                            <Link to='/home' className='text-decorator-none cursor'>
-                                <Typography variant="h6" color="inherit">
-                                    Home
-                                </Typography>
-                            </Link>
-                        </Box>
                         <Box mx={1} className='cursor'>
                             <Link to='/posts' className='text-decorator-none cursor'>
                                 <Typography variant="h6" color="inherit">
@@ -58,8 +52,6 @@ function Navbar() {
                                 Logout
                             </Typography>
                         </Box>
-
-                    </Box>
 
                 </Toolbar>
             </AppBar>

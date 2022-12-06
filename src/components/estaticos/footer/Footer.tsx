@@ -21,7 +21,7 @@ function Footer() {
                             <a href="https://www.instagram.com/generationbrasil/" target="_blank" rel="noopener noreferrer">
                                 <InstagramIcon style={{ fontSize: 60, color: "white" }} />
                             </a>
-                            <a href="https://www.linkedin.com/school/generationbrasil/" target="_blank" rel="noopener noreferrer">
+                            <a href="www.linkedin.com/in/davi-musser" target="_blank" rel="noopener noreferrer">
                                 <LinkedInIcon style={{ fontSize: 60, color: "white" }} />
                             </a>
                         </Box>

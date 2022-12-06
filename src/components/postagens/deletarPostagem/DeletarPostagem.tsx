@@ -3,6 +3,7 @@ import {Typography, Button, Card, CardActions, CardContent } from "@material-ui/
 import {Box} from '@mui/material';
 import './DeletarPostagem.css';
 import Postagem from '../../../models/Postagem';
+import { buscaId, deleteId } from '../../../services/Service';
 
 function DeletarPostagem() {
    
