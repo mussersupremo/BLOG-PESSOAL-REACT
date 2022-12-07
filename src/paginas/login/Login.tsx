@@ -5,20 +5,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import UserLogin from '../../models/UserLogin';
 import { login } from '../../services/Service';
-import useLocalStorage from 'react-use-localstorage';
+import { useDispatch } from 'react-redux';
 
 function Login() {
 
-    const navigate = useNavigate()
-
-    const [token, setToken] = useLocalStorage('token')
-
+    const navigate = useNavigate();
+    const [token, setToken] = useState('');
+    const dispatch = useDispatch ()
     const [UserLogin, setUserLogin] = useState<UserLogin>({
-
         usuario: '',
-
         senha: ''
-
     })
 
     function updateModel(e: ChangeEvent<HTMLInputElement>) {
@@ -35,7 +31,7 @@ function Login() {
 
     useEffect(() => {
 
-        if (token != '') {
+        if (token !== '') {
 
             navigate('/home')
 
